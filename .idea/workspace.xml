@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef0409b8-1bd0-4c41-8bfd-b9e3e176c8f0" name="Changes" comment="">
+    <list default="true" id="ef0409b8-1bd0-4c41-8bfd-b9e3e176c8f0" name="Changes" comment="0419">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -247,11 +247,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1776588207064</updated>
-      <workItem from="1776588209099" duration="1940000" />
+      <workItem from="1776588209099" duration="2520000" />
     </task>
+    <task id="LOCAL-00001" summary="0419">
+      <option name="closed" value="true" />
+      <created>1776597036881</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1776597036881</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="0419" />
+    <option name="LAST_COMMIT_MESSAGE" value="0419" />
   </component>
 </project>
