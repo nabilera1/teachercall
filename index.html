@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김해수남고등학교 1학년 선생님 호출</title>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f39c12;
+            --bg-color: #f4f7f6;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            background-color: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1 { color: #333; font-size: 1.5rem; margin-bottom: 5px; }
+        p { color: #666; margin-bottom: 25px; }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        button {
+            padding: 20px 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.1s, background-color 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        button:active {
+            transform: scale(0.95);
+            background-color: #e0e0e0;
+        }
+
+        .class-label {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+
+        .teacher-name {
+            font-size: 1.2rem;
+            color: #2c3e50;
+        }
+
+        /* 14번째 버튼 스타일 (열쇠 요청) */
+        .key-button {
+            grid-column: 1 / -1;
+            background-color: var(--secondary-color);
+            color: white;
+            margin-top: 10px;
+        }
+
+        .key-button .class-label, .key-button .teacher-name {
+            color: white;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>김해수남고등학교 1학년 선생님 호출</h1>
+    <p>본인 반의 버튼을 누르면 선생님을 호출합니다.</p>
+
+    <div class="container" id="button-container">
+        </div>
+
+    <footer>© 김해수남고등학교 1학년 교무실</footer>
+
+    <script>
+        const teachers = [
+            { class: "1반", name: "강민경" },
+            { class: "2반", name: "이유정" },
+            { class: "3반", name: "황채원" },
+            { class: "4반", name: "이지훈" },
+            { class: "5반", name: "송선화" },
+            { class: "6반", name: "권지영" },
+            { class: "7반", name: "윤순현" },
+            { class: "8반", name: "김동균" },
+            { class: "9반", name: "이승환" },
+            { class: "10반", name: "여은화" },
+            { class: "11반", name: "이지은" },
+            { class: "12반", name: "박동희" },
+            { class: "13반", name: "도향숙" }
+        ];
+
+        const container = document.getElementById('button-container');
+
+        // 1~13반 버튼 생성
+        teachers.forEach(t => {
+            const btn = document.createElement('button');
+            btn.innerHTML = `<span class="class-label">${t.class}</span><span class="teacher-name">${t.name} 선생님</span>`;
+            btn.onclick = () => speak(`${t.class} ${t.name} 선생님, 학생이 밖에서 호출하였습니다.`);
+            container.appendChild(btn);
+        });
+
+        // 14번째 열쇠 버튼 생성
+        const keyBtn = document.createElement('button');
+        keyBtn.className = 'key-button';
+        keyBtn.innerHTML = `<span class="teacher-name">🔑 열쇠 요청</span><span>스마트폰 사용을 위해 열쇠를 받고 싶습니다.</span>`;
+        keyBtn.onclick = () => speak("선생님, 스마트폰 사용을 위해 우리반 열쇠를 받고 싶습니다.");
+        container.appendChild(keyBtn);
+
+        // 음성 출력 함수
+        function speak(text) {
+            // 기존에 말하고 있다면 중지
+            window.speechSynthesis.cancel();
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'ko-KR';
+            utterance.rate = 1.0; // 속도
+            utterance.pitch = 1.0; // 음높이
+            window.speechSynthesis.speak(utterance);
+        }
+    </script>
+</body>
+</html>
