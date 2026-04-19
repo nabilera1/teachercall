@@ -93,6 +93,12 @@
     <footer>© 김해수남고등학교 1학년 교무실</footer>
 
     <script>
+    // 카카오톡 인앱 브라우저라면 외부 브라우저(크롬 등)로 강제 실행
+    if (navigator.userAgent.match(/KAKAOTALK/i)) {
+        location.href = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(window.location.href);
+    }
+    </script>
+    <script>
         const teachers = [
             { class: "1반", name: "강민경" },
             { class: "2반", name: "이유정" },
